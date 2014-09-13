@@ -23,7 +23,7 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-ifneq ($(filter mako occam,$(TARGET_DEVICE)),)
+ifneq ($(filter aries aries,$(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 
@@ -43,6 +43,31 @@ LOCAL_SRC_FILES    := $(LOCAL_MODULE)
 LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/wifi
 include $(BUILD_PREBUILT)
 
-endif
+include $(CLEAR_VARS)
+LOCAL_MODULE       := hostapd_default.conf
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := $(LOCAL_MODULE)
+LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/hostapd
+include $(BUILD_PREBUILT)
 
 include $(call first-makefiles-under,$(LOCAL_PATH))
+
+# This is ugly for more reasons than I can mention. Don't think
+# that this is a good idea. It's not. It's horrible. It's truly
+# entirely horrible. It's not an elegant hack in any way.
+
+$(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wcd9310; \
+	ln -sf /data/misc/audio/wcd9310_anc.bin \
+	$(TARGET_OUT_ETC)/firmware/wcd9310/wcd9310_anc.bin; \
+	ln -sf /data/misc/audio/mbhc.bin \
+	$(TARGET_OUT_ETC)/firmware/wcd9310/wcd9310_mbhc.bin)
+
+# Create a link for the WCNSS config file, which ends up as a writable
+# version in /data/misc/wifi
+$(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
+    ln -sf /data/misc/wifi/WCNSS_qcom_cfg.ini \
+    $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
+
+endif
+

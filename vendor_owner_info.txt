@@ -1,6 +1,6 @@
 root/adb_keys:google
 system/bin/ATFWD-daemon:qcom
-system/etc/DxHDCP.cfg:lge
+system/etc/DxHDCP.cfg:xiaomi
 system/vendor/firmware/bcm2079x_firmware.ncd:broadcom
 system/vendor/firmware/bcm2079x_pre_firmware.ncd:broadcom
 system/bin/bridgemgrd:qcom
@@ -8,11 +8,11 @@ system/bin/btnvtool:qcom
 system/bin/diag_klog:qcom
 system/bin/diag_mdlog:qcom
 system/bin/ds_fmc_appd:qcom
-system/vendor/firmware/discretix/dxhdcp2.b00:lge
-system/vendor/firmware/discretix/dxhdcp2.b01:lge
-system/vendor/firmware/discretix/dxhdcp2.b02:lge
-system/vendor/firmware/discretix/dxhdcp2.b03:lge
-system/vendor/firmware/discretix/dxhdcp2.mdt:lge
+system/vendor/firmware/discretix/dxhdcp2.b00:xiaomi
+system/vendor/firmware/discretix/dxhdcp2.b01:xiaomi
+system/vendor/firmware/discretix/dxhdcp2.b02:xiaomi
+system/vendor/firmware/discretix/dxhdcp2.b03:xiaomi
+system/vendor/firmware/discretix/dxhdcp2.mdt:xiaomi
 system/bin/efsks:qcom
 system/bin/hci_qcomm_init:qcom
 system/bin/mm-qcamera-app:qcom
@@ -50,10 +50,10 @@ system/lib/egl/libq3dtools_adreno.so:qcom
 system/lib/libAKM.so:lge
 system/lib/libCB.so:qcom
 system/lib/libCommandSvc.so:qcom
-system/lib/libDxHdcp.so:lge
+system/lib/libDxHdcp.so:xiaomi
 system/lib/libI420colorconvert.so:qcom
 system/lib/libQSEEComAPI.so:qcom
-system/lib/libacdbdata.so:lge
+system/lib/libacdbdata.so:xiaomi
 system/lib/libacdbloader.so:qcom
 system/lib/libadreno_utils.so:qcom
 system/lib/libaudcal.so:qcom
@@ -115,7 +115,7 @@ system/lib/libmmjps.so:qcom
 system/lib/libmmmpo.so:qcom
 system/lib/libmmmpod.so:qcom
 system/lib/libmmstillomx.so:qcom
-system/lib/libmorpho_noise_reduction.so:lge
+system/lib/libmorpho_noise_reduction.so:xiaomi
 system/lib/libnetmgr.so:qcom
 system/lib/liboemcamera.so:qcom
 system/lib/liboemcrypto.so:qcom

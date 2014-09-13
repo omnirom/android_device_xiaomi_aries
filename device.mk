@@ -14,12 +14,12 @@
 # limitations under the License.
 #
 
-# This file includes all definitions that apply to ALL mako devices, and
-# are also specific to mako devices
+# This file includes all definitions that apply to ALL aries devices, and
+# are also specific to aries devices
 #
 # Everything in this directory will become public
 
-DEVICE_PACKAGE_OVERLAYS := device/lge/mako/overlay
+DEVICE_PACKAGE_OVERLAYS := device/xiaomi/aries/overlay
 
 # This device is xhdpi.  However the platform doesn't
 # currently contain all of the bitmaps at xhdpi density so
@@ -29,57 +29,61 @@ PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 PRODUCT_PACKAGES := \
-	lights.mako
+	lights.aries
 
 PRODUCT_PACKAGES += \
-    charger_res_images \
-    charger
+    charger_res_images_aries \
+    charger_aries
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
-        LiveWallpapers \
-        LiveWallpapersPicker \
-        VisualizationWallpapers \
         librs_jni
+        
+# Dualboot
+PRODUCT_COPY_FILES += \
+	device/xiaomi/aries/recovery/mount_ext4_default.sh:recovery/root/res/dualboot/mount_ext4_default.sh \
+	device/xiaomi/aries/recovery/mount_ext4_tdb.sh:recovery/root/res/dualboot/mount_ext4_tdb.sh
 
 PRODUCT_COPY_FILES += \
-	device/lge/mako/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
-	device/lge/mako/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-	device/lge/mako/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin
+	device/xiaomi/aries/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+	device/xiaomi/aries/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
+	device/xiaomi/aries/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 PRODUCT_COPY_FILES += \
-	device/lge/mako/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
-	device/lge/mako/audio_policy.conf:system/etc/audio_policy.conf
+	device/xiaomi/aries/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
+	device/xiaomi/aries/audio_policy.conf:system/etc/audio_policy.conf
 
 PRODUCT_COPY_FILES += \
-	device/lge/mako/mixer_paths.xml:system/etc/mixer_paths.xml
+	device/xiaomi/aries/mixer_paths.xml:system/etc/mixer_paths.xml
 
 PRODUCT_COPY_FILES += \
-	device/lge/mako/thermald-mako.conf:system/etc/thermald.conf
+	device/xiaomi/aries/thermald-aries.conf:system/etc/thermald.conf
 
 PRODUCT_COPY_FILES += \
-	device/lge/mako/init.mako.rc:root/init.mako.rc \
-	device/lge/mako/init.mako.usb.rc:root/init.mako.usb.rc \
-	device/lge/mako/fstab.mako:root/fstab.mako \
-	device/lge/mako/twrp.fstab:recovery/root/etc/twrp.fstab \
-	device/lge/mako/ueventd.mako.rc:root/ueventd.mako.rc \
-	device/lge/mako/media_profiles.xml:system/etc/media_profiles.xml \
-	device/lge/mako/media_codecs.xml:system/etc/media_codecs.xml
+	device/xiaomi/aries/init.aries.rc:root/init.aries.rc \
+	device/xiaomi/aries/init.aries.usb.rc:root/init.aries.usb.rc \
+	device/xiaomi/aries/fstab.aries:root/fstab.aries \
+	device/xiaomi/aries/twrp.fstab:recovery/root/etc/twrp.fstab \
+	device/xiaomi/aries/ueventd.aries.rc:root/ueventd.aries.rc \
+	device/xiaomi/aries/media_profiles.xml:system/etc/media_profiles.xml \
+	device/xiaomi/aries/media_codecs.xml:system/etc/media_codecs.xml
 
 # Prebuilt kl and kcm keymaps
 PRODUCT_COPY_FILES += \
-	device/lge/mako/apq8064-tabla-snd-card_Button_Jack.kl:system/usr/keylayout/apq8064-tabla-snd-card_Button_Jack.kl \
-	device/lge/mako/hs_detect.kl:system/usr/keylayout/hs_detect.kl \
-	device/lge/mako/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
-	device/lge/mako/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
-	device/lge/mako/apq8064-tabla-snd-card_Button_Jack.kcm:system/usr/keychars/apq8064-tabla-snd-card_Button_Jack.kcm \
-	device/lge/mako/hs_detect.kcm:system/usr/keychars/hs_detect.kcm \
-	device/lge/mako/keypad_8064.kcm:system/usr/keychars/keypad_8064.kcm \
-	device/lge/mako/pmic8xxx_pwrkey.kcm:system/usr/keychars/pmic8xxx_pwrkey.kcm
+	device/xiaomi/aries/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl \
+	device/xiaomi/aries/sensor00fn1a.kl:system/usr/keylayout/sensor00fn1a.kl \
+	device/xiaomi/aries/apq8064-tabla-snd-card_Button_Jack.kl:system/usr/keylayout/apq8064-tabla-snd-card_Button_Jack.kl \
+	device/xiaomi/aries/hs_detect.kl:system/usr/keylayout/hs_detect.kl \
+	device/xiaomi/aries/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
+	device/xiaomi/aries/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
+	device/xiaomi/aries/apq8064-tabla-snd-card_Button_Jack.kcm:system/usr/keychars/apq8064-tabla-snd-card_Button_Jack.kcm \
+	device/xiaomi/aries/hs_detect.kcm:system/usr/keychars/hs_detect.kcm \
+	device/xiaomi/aries/keypad_8064.kcm:system/usr/keychars/keypad_8064.kcm \
+	device/xiaomi/aries/pmic8xxx_pwrkey.kcm:system/usr/keychars/pmic8xxx_pwrkey.kcm
 
 # Prebuilt input device calibration files
 PRODUCT_COPY_FILES += \
-	device/lge/mako/touch_dev.idc:system/usr/idc/touch_dev.idc
+	device/xiaomi/aries/touch_dev.idc:system/usr/idc/touch_dev.idc
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -97,30 +101,9 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+	frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
 	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml
-
-# NFC packages
-PRODUCT_PACKAGES += \
-    nfc_nci.mako \
-    NfcNci \
-    Tag \
-    com.android.nfc_extras
-
-# NFCEE access control
-ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := device/lge/mako/nfc/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := device/lge/mako/nfc/nfcee_access_debug.xml
-endif
-
-# NFC access control + feature files + configuration
-PRODUCT_COPY_FILES += \
-    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
-    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
-    device/lge/mako/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=196608
@@ -132,13 +115,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # FIXME: Remove persist.audio.handset.mic and persist.audio.fluence.mode
 #        while switching new audio HAL from legacy HAL
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.audio.handset.mic.type=digital \
-	persist.audio.dualmic.config=endfire \
-	persist.audio.fluence.voicecall=true \
-	persist.audio.handset.mic=dmic \
 	persist.audio.fluence.mode=endfire \
-	persist.audio.lowlatency.rec=false \
-	af.resampler.quality=4
+	persist.audio.vr.enable=false \
+	persist.audio.handset.mic=digital \
+	af.resampler.quality=255 \
+	mpq.audio.decode=true
 
 
 # Do not power down SIM card when modem is sent to Low Power Mode.
@@ -173,17 +154,19 @@ PRODUCT_PACKAGES += \
 	memtrack.msm8960
 
 PRODUCT_PACKAGES += \
-	audio_policy.msm8960 \
-	audio.primary.msm8960 \
+	alsa.msm8960 \
+	audio_policy.aries \
+	audio.primary.aries \
 	audio.a2dp.default \
 	audio.usb.default \
 	audio.r_submix.default \
-	libaudio-resampler
+	libaudio-resampler \
+	tinymix
 
 # Voice processing
 PRODUCT_PACKAGES += libqcomvoiceprocessing
 PRODUCT_COPY_FILES += \
-    device/lge/mako/audio_effects.conf:system/vendor/etc/audio_effects.conf
+    device/xiaomi/aries/audio_effects.conf:system/vendor/etc/audio_effects.conf
 
 PRODUCT_PACKAGES += \
 	hci_qcomm_init
@@ -192,16 +175,11 @@ PRODUCT_PACKAGES += \
 	power.msm8960
 
 PRODUCT_COPY_FILES += \
-	device/lge/mako/init.mako.bt.sh:system/etc/init.mako.bt.sh
+	device/xiaomi/aries/init.aries.bt.sh:system/etc/init.aries.bt.sh \
+	device/xiaomi/aries/init.aries.fm.sh:system/etc/init.aries.fm.sh
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.bt.hci_transport=smd
-
-PRODUCT_PACKAGES += \
-	camera.mako \
-	camera.msm8960 \
-	libmmcamera_interface2 \
-	libmmcamera_interface
 
 PRODUCT_PACKAGES += \
         libmm-omxcore \
@@ -214,7 +192,7 @@ PRODUCT_PACKAGES += \
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
-        device/lge/mako/gps.conf:system/etc/gps.conf
+        device/xiaomi/aries/gps.conf:system/etc/gps.conf
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -231,21 +209,40 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
 	bdAddrLoader \
-	libwfcu \
-	conn_init
+	libwcnss_qmi \
+	wcnss_service
 
 PRODUCT_PACKAGES += \
 	keystore.msm8960
 
 PRODUCT_PACKAGES += \
+	hostapd_default.conf \
 	wpa_supplicant_overlay.conf \
 	p2p_supplicant_overlay.conf
+
+PRODUCT_PACKAGES += \
+	dualboot_init
+
+# fmradio support
+PRODUCT_PACKAGES += \
+	qcom.fmradio \
+	libqcomfm_jni \
+	FM2 \
+	FMRecord
+
+# transmitter isn't supported
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.fm.transmitter=false
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	rild.libpath=/system/lib/libril-qc-qmi-1.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	telephony.lteOnCdmaDevice=0
+	telephony.lteOnCdmaDevice=0 \
+	ril.subscription.types=NV,RUIM \
+	ro.cdma.home.operator.numeric=46003 \
+	ro.telephony.default_cdma_sub=0 \
+	persist.omh.enabled=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	drm.service.enabled=true
@@ -266,11 +263,25 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.sensors.smd=true
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	persist.sys.usb.config=mtp
-
+	persist.sys.usb.config=mtp \
+	ro.keep.recovery.partition=1
+	
 # Other apps
 PRODUCT_PACKAGES += \
     OmniTorch
 
+PRODUCT_PACKAGES += \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc
+
+# QRNGD
+PRODUCT_PACKAGES += qrngd
+
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
+# This is the aries-specific audio package
+$(call inherit-product, frameworks/base/data/sounds/AudioPackage10.mk)
+
 $(call inherit-product, hardware/qcom/msm8960/msm8960.mk)

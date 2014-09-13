@@ -15,5 +15,5 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_mako.mk \
-    $(LOCAL_DIR)/omni_mako.mk
+    $(LOCAL_DIR)/aosp_aries.mk \
+    $(LOCAL_DIR)/omni_aries.mk
