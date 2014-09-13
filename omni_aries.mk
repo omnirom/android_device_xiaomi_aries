@@ -25,17 +25,17 @@ $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, vendor/omni/config/gsm.mk)
 
 # Inherit from hardware-specific part of the product configuration
-$(call inherit-product, device/lge/mako/device.mk)
+$(call inherit-product, device/xiaomi/aries/device.mk)
 
-PRODUCT_NAME := omni_mako
-PRODUCT_DEVICE := mako
-PRODUCT_BRAND := google
-PRODUCT_MODEL := Nexus 4
-PRODUCT_MANUFACTURER := LGE
+PRODUCT_NAME := omni_aries
+PRODUCT_DEVICE := aries
+PRODUCT_BRAND := Xiaomi
+PRODUCT_MODEL := MI 2
+PRODUCT_MANUFACTURER := XIAOMI
 
 # Kernel inline build
-TARGET_KERNEL_CONFIG := mako_defconfig
-TARGET_VARIANT_CONFIG := mako_defconfig
-TARGET_SELINUX_CONFIG := mako_defconfig
+TARGET_KERNEL_CONFIG := cyanogen_aries_defconfig
+TARGET_VARIANT_CONFIG := cyanogen_aries_defconfig
+TARGET_SELINUX_CONFIG := cyanogen_aries_defconfig
 
-$(call inherit-product-if-exists, vendor/lge/mako/mako-vendor.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/aries/aries-vendor.mk)

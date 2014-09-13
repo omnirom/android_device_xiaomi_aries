@@ -15,4 +15,4 @@
 #
 
 add_lunch_combo aosp_aries-userdebug
-add_lunch_combo omni_mako-userdebug
+add_lunch_combo omni_aries-userdebug
